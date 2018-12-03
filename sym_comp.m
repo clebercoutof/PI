@@ -25,20 +25,13 @@ phase_fa = phase(fa);
 phase_fb = phase(fb);
 phase_fc = phase(fc);
 
-%fa = max_fa;
-%fb = max_fb;
-%fc = max_fc ;
 
 
 %Recebe a lista com as correntes que não sofreram curto zeradas
 ALFA=-0.5-0.866i;
 I0=1/3*(fa+fb+fc);
-I1=1/3*(fa+(ALFA*fb)+((ALFA^2)*fc));
-I2=1/3*(fa+((ALFA^2)*fb)+(ALFA*fc));
+I1=1/3*(fa+(ALFA^2*fb)+(ALFA*fc));
+I2=1/3*(fa+((ALFA)*fb)+(ALFA^2*fc));
 
-abs_I1 = abs(round(I1,2));
-abs_I2 = abs(round(I2,2));
-I0 = round(I0,2);
-sum_mag = abs_I1 + abs_I2;
-mag_sum =round(abs(I1+I2),2);
+I0 = round(I0,1);
 end
