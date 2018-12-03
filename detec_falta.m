@@ -1,4 +1,4 @@
-load('fase-fase Inicio da linha') %Carrega arquivo da simulação
+load('Inicio_Bi') %Carrega arquivo da simulação
 raw_signal_a= iX0026aX0001a; %sinal da fase a
 raw_signal_b = iX0026bX0001b; %sinal da fase b
 raw_signal_c = iX0026cX0001c; %sinal da fase c
@@ -24,12 +24,5 @@ tri_plot(t,ia,ib,ic);
 number_of_cycles = 2;%Faz análise spectral do sinal para N ciclos
 %dft_transients(icc_transient,f_signal,fs,peak_bin,number_of_cycles);
 
-%[v012] = fasor2comp_sim(current_fault_list,f_signal,fs,peak_bin,number_of_cycles);
 [I0,I1,I2] = sym_comp(current_fault_list,fase,f_signal,fs,number_of_cycles,peak_bin);
 fault_type = fault_identifier_sc(I0,I1,I2);
-
-
-%[y,y2,y3,ocorreu]=teste1(ia,ib,ic); 
-
-%ipt = findchangepts(ic,'Statistic','rms','MinThreshold',50);
-%tempo = time_step*ocorreu;
