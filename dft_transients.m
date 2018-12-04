@@ -24,8 +24,7 @@ f = fs*(0:(N/2))/N;
 figure
 stem(f,P1);
 title('DFT com janela Hanning depois do curto');
-window2 = window_hanning(M)
-signal_pre_fault = fft(window2.*signal(1:N)',N); %transformada do sinal
+signal_pre_fault = fft(window.*signal(1:N)',N); %transformada do sinal
 %configurações para plot
 X2=2*abs(signal_pre_fault/N);
 X1=X2(1:N/2+1);

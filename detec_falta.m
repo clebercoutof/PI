@@ -1,4 +1,4 @@
-load('Inicio_fase-fase') % Carrega arquivo da simulação
+load('Inicio_Bi') % Carrega arquivo da simulação
 raw_signal_a= iX0026aX0001a; % Sinal da fase a
 raw_signal_b = iX0026bX0001b; % Sinal da fase b
 raw_signal_c = iX0026cX0001c; % Sinal da fase c
@@ -23,4 +23,4 @@ margem = 6;%Margem aceitavel para falta fase-fase
 fault_type = fault_identifier_sc(I0,I1,I2,margem) %Cria variavel com o tipo da falta
 %Calcula as transformadas de Clark
 [Izero,Ialfa,Ibeta] = clark_comp(current_fault_list,fase,f_signal,fs,number_of_cycles,peak_bin);
-%fault_type_clark = fault_identifier_clark(Izero,Ialfa,Ibeta);%Cria variavel com o tipo da falta
+fault_type_clark = fault_identifier_clark(Izero,Ialfa,Ibeta);%Cria variavel com o tipo da falta
