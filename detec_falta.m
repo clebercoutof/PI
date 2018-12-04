@@ -27,7 +27,9 @@ tri_plot(t,ia,ib,ic);
 % Encontra o bin onde ocorre o curto
 [peak_bin,fase,icc_transient,current_fault_list] = peak_bin_finder(ia,ib,ic,nominal_current);
 number_of_cycles = 2; %Número de ciclos pos curto para análise
-%dft_transients(icc_transient,f_signal,fs,peak_bin,number_of_cycles);
+%Analise espectral
+dft_transients(icc_transient,f_signal,fs,peak_bin,number_of_cycles);
+
 %calculo das componentes simetricas
 [I0,I1,I2] = sym_comp(current_fault_list,fase,f_signal,fs,number_of_cycles,peak_bin);
 margem = 10;%Margem aceitavel para falta fase-fase
