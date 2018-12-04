@@ -1,14 +1,18 @@
-load('Meio_fase-fase') % Carrega arquivo da simulação
+load('Inicio_Mono') % Carrega arquivo da simulação
+%Faltas no final da linha
+%raw_signal_a= iX0019aX0001a; % Sinal da fase a
+%raw_signal_b = iX0019bX0001b; % Sinal da fase b
+%raw_signal_c = iX0019cX0001c; % Sinal da fase c
 
 %Faltas no meio da linha
-raw_signal_a= iX0033aX0001a; % Sinal da fase a
-raw_signal_b = iX0033bX0001b; % Sinal da fase b
-raw_signal_c = iX0033cX0001c; % Sinal da fase c
+%raw_signal_a= iX0033aX0001a; % Sinal da fase a
+%raw_signal_b = iX0033bX0001b; % Sinal da fase b
+%raw_signal_c = iX0033cX0001c; % Sinal da fase c
 
 %Faltas no inicio da linha
-%raw_signal_a= iX0026aX0001a; % Sinal da fase a
-%raw_signal_b = iX0026bX0001b; % Sinal da fase b
-%raw_signal_c = iX0026cX0001c; % Sinal da fase c
+raw_signal_a= iX0026aX0001a; % Sinal da fase a
+raw_signal_b = iX0026bX0001b; % Sinal da fase b
+raw_signal_c = iX0026cX0001c; % Sinal da fase c
 
 nominal_current = 165; % Corrente nominal do circuito
 f_signal = 60; % Frequenciad o Sinal
@@ -26,9 +30,9 @@ number_of_cycles = 2; %Número de ciclos pos curto para análise
 %dft_transients(icc_transient,f_signal,fs,peak_bin,number_of_cycles);
 %calculo das componentes simetricas
 [I0,I1,I2] = sym_comp(current_fault_list,fase,f_signal,fs,number_of_cycles,peak_bin);
-margem_sc = 10;%Margem aceitavel para falta fase-fase
-fault_type = fault_identifier_sc(I0,I1,I2,margem_sc) %Cria variavel com o tipo da falta
+margem = 10;%Margem aceitavel para falta fase-fase
+fault_type = fault_identifier_sc(I0,I1,I2,margem) %Cria variavel com o tipo da falta
 %Calcula as transformadas de Clark
-margem_clarke = 6;
+margem = 6; %Margem de erro aceita (6/18/30)
 [Izero,Ialfa,Ibeta] = clark_comp(current_fault_list,fase,f_signal,fs,number_of_cycles,peak_bin);
-fault_type_clark = fault_identifier_clark(Izero,Ialfa,Ibeta,margem_clarke)%Cria variavel com o tipo da falta
+fault_type_clark = fault_identifier_clark(Izero,Ialfa,Ibeta,margem)%Cria variavel com o tipo da falta
