@@ -20,18 +20,18 @@ P2=2*abs(signal_fft/N);
 P1=P2(1:N/2+1);
 P1(2:end-1) = 2*P1(2:end-1);
 f = fs*(0:(N/2))/N;
-
+title('DFT com janela Hanning depois do curto em r/b');
 figure
-stem(f,P1);
-title('DFT com janela Hanning depois do curto');
+stem(f,P1,'b');
+
 window2 = window_hanning(M)
-signal_pre_fault = fft(window2.*signal(1:N)',N); %transformada do sinal
+signal_pre_fault = fft(signal(1:N),N); %transformada do sinal
 %configurações para plot
 X2=2*abs(signal_pre_fault/N);
 X1=X2(1:N/2+1);
 X1(2:end-1) = 2*X1(2:end-1);
 figure
-stem(f,X1);
+stem(f,X1,'r');
 
-title('DFT com janela Hanning antes do curto');
+title('DFT com janela Hanning antes/ depois do curto em r/b');
 end

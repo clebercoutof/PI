@@ -1,4 +1,4 @@
-function fault_type = fault_identifier_sc(I0,I1,I2)
+function fault_type = fault_identifier_sc(I0,I1,I2,margim)
 %Análise de curto-circuito via componentes simétricas
 mag_sum_I1_I2 = round(abs(I1+I2),1);
 mag_I1 = round(abs(I1),1);
@@ -14,7 +14,7 @@ end
 if I0 == 0
     fault_type = 'Falta Trifasica';
 end
-if mag_sum_I1_I2 == I0
+if mag_sum_I1_I2 < margim
     fault_type = 'Falta fase-fase';
 end
 end
